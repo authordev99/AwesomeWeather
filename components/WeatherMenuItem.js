@@ -4,10 +4,10 @@ import SpaceFiller from "./SpaceFiller";
 import TemperatureNumber from "./TemperatureNumber";
 import { getImageWeatherStatus } from "../util/utility";
 
-const WeatherMenuItem = ({ item, onPress }) => {
+const WeatherMenuItem = ({ item, index, onPress }) => {
 
   const onPressItem = () => {
-    onPress(item);
+    onPress(index);
   };
 
   return (

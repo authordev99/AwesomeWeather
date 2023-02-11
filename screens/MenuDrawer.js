@@ -23,8 +23,8 @@ import { data } from "../util/data";
 
 function MenuDrawer(props) {
 
-  const onPress = (item) => {
-    props.navigation.navigate("Home",{value: item});
+  const onPress = (index) => {
+    props.navigation.navigate("Home",{index: index});
   };
 
   const goBack = () => {
