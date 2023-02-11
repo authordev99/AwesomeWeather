@@ -5,10 +5,9 @@
  * @format
  */
 
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import {
-  Alert, FlatList,
-  SafeAreaView,
+  FlatList,
   StyleSheet,
   Text, View,
 } from "react-native";
@@ -18,33 +17,11 @@ import CustomText from "../components/CustomTitle";
 import { FLASHWHITE } from "../util/colors";
 import { EMPTY_LIST_STATE } from "../util/strings";
 import WeatherMenuItem from "../components/WeatherMenuItem";
+import { data } from "../util/data";
 
 
 
 function MenuDrawer(props) {
-
-  const data = [
-    {
-      temperature: "37",
-      status: "cloudy",
-      name: "Budapest",
-    },
-    {
-      temperature: "24",
-      status: "Partial cloudy",
-      name: "Malaysia",
-    },
-    {
-      temperature: "22",
-      status: "Fog",
-      name: "Tokyo",
-    },
-    {
-      temperature: "31",
-      status: "Snow",
-      name: "New York",
-    }
-  ]
 
   const onPress = (item) => {
     props.navigation.navigate("Home",{value: item});

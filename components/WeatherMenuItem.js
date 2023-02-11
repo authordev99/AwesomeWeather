@@ -1,6 +1,8 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import SpaceFiller from "./SpaceFiller";
+import TemperatureNumber from "./TemperatureNumber";
+import { getImageWeatherStatus } from "../util/utility";
 
 const WeatherMenuItem = ({ item, onPress }) => {
 
@@ -10,11 +12,9 @@ const WeatherMenuItem = ({ item, onPress }) => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPressItem}>
-      <View style={{flexDirection: 'row'}}>
-        <Text style={styles.temperature}>{item.temperature}</Text>
-        <View style={styles.roundShape} />
-      </View>
-
+      <TemperatureNumber
+        temperature={item.temperature}
+        temperatureStyle={styles.temperature} />
       <SpaceFiller width={12} />
       <View style={{flex: 1}}>
         <Text style={styles.cityText}>{item.name}</Text>
@@ -22,7 +22,7 @@ const WeatherMenuItem = ({ item, onPress }) => {
       </View>
 
       <View style={styles.iconContainer}>
-        <Image style={styles.image} source={require("../images/back.png")} />
+        <Image style={styles.image} source={getImageWeatherStatus(item.status)} />
       </View>
 
     </TouchableOpacity>

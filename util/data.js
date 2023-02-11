@@ -2,7 +2,7 @@ export const data = [
   {
     id: 1,
     name: "Budapest",
-    status: "cloudy",
+    status: "Cloudy",
     temperature: 35,
     high: 37,
     low: 24,
@@ -20,21 +20,21 @@ export const data = [
         low: 24
       },
       {
-        status: "sun",
+        status: "cloudy",
         day: "THUR",
         date: "16 FEB",
         high: 32,
         low: 24
       },
       {
-        status: "sun",
+        status: "rain",
         day: "FRI",
         date: "17 FEB",
         high: 32,
         low: 24
       },
       {
-        status: "sun",
+        status: "snow",
         day: "SAT",
         date: "18 FEB",
         high: 32,
@@ -48,14 +48,14 @@ export const data = [
         low: 24
       }
     ],
-    // roundImage: require("../images/cities.png"),
-    // backgroundImage: require("../images/cities.png")
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Flag_of_Budapest_%282011-%29.svg/800px-Flag_of_Budapest_%282011-%29.svg.png",
+    background: "https://media.timeout.com/images/105879336/750/422/image.jpg",
   },
   {
     id: 2,
     name: "Tokyo",
-    status: "fog",
-    temperature: 31,
+    status: "Snow",
+    temperature: 32,
     high: 40,
     low: 28,
     details: [
@@ -65,28 +65,28 @@ export const data = [
     ],
     daily: [
       {
-        status: "sun",
+        status: "cloudy",
         day: "WED",
         date: "15 FEB",
         high: 28,
         low: 22
       },
       {
-        status: "sun",
+        status: "partialCloudy",
         day: "THUR",
         date: "16 FEB",
         high: 29,
         low: 27
       },
       {
-        status: "sun",
+        status: "rain",
         day: "FRI",
         date: "17 FEB",
         high: 35,
         low: 29
       },
       {
-        status: "sun",
+        status: "rain",
         day: "SAT",
         date: "18 FEB",
         high: 32,
@@ -100,14 +100,14 @@ export const data = [
         low: 24
       }
     ],
-    // roundImage: require("../images/cities.png"),
-    // backgroundImage: require("../images/cities.png")
+    flag: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png",
+    background: "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
   },
   {
     id: 3,
-    name: "Budapest",
-    status: "cloudy",
-    temperature: 35,
+    name: "Malaysia",
+    status: "Sun",
+    temperature: 34,
     high: 37,
     low: 24,
     details: [
@@ -117,14 +117,14 @@ export const data = [
     ],
     daily: [
       {
-        status: "sun",
+        status: "rain",
         day: "WED",
         date: "15 FEB",
         high: 32,
         low: 24
       },
       {
-        status: "sun",
+        status: "cloudy",
         day: "THUR",
         date: "16 FEB",
         high: 32,
@@ -138,21 +138,21 @@ export const data = [
         low: 24
       },
       {
-        status: "sun",
+        status: "partialCloudy",
         day: "SAT",
         date: "18 FEB",
         high: 32,
         low: 24
       },
       {
-        status: "sun",
+        status: "rain",
         day: "SUN",
         date: "19 FEB",
         high: 32,
         low: 24
       }
     ],
-    // roundImage: require("../images/cities.png"),
-    // backgroundImage: require("../images/cities.png")
+    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Malaya.svg/1280px-Flag_of_Malaya.svg.png",
+    background: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg/640px-The_Twins_SE_Asia_2019_%2849171985716%29.jpg",
   },
 ];

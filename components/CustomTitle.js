@@ -1,7 +1,5 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
-import SpaceFiller from "./SpaceFiller";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const CustomText = ({ text, additionalStyle, isWhiteColor }) => {
   const color = isWhiteColor ? 'white' : 'black';

@@ -34,7 +34,6 @@ const Header = ({
       <View
         style={styles.headerSmallElement}
         onLayout={(event) => {
-          //to get component position for highlight overlay
           rightLayoutCallback(event);
         }}
       >

@@ -1,22 +1,29 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SpaceFiller from "./SpaceFiller";
+import { getImageWeatherStatus } from "../util/utility";
+import TemperatureNumber from "./TemperatureNumber";
 
 const WeatherDaysItem = ({ item }) => {
 
   return (
     <View style={styles.container}>
-
-      <Image style={styles.image} source={require("../images/sun.png")} />
+      <Image style={styles.image} source={getImageWeatherStatus(item.status)} />
       <SpaceFiller width={32} />
-      <View style={{flex: 1}}>
-        <Text style={styles.cityText}>{item.name}</Text>
-        <Text style={styles.statusText}>{item.status}</Text>
+      <View style={styles.dateContainer}>
+        <Text style={[styles.text, styles.bold]}>{item.day}</Text>
+        <Text style={styles.text}>{item.date}</Text>
       </View>
 
-      <View style={{alignItems: 'flex-end'}}>
-        <Text style={styles.cityText}>{item.temperature}</Text>
-        <Text style={styles.statusText}>{item.temperature}</Text>
+      <View style={styles.highLowContainer}>
+        <TemperatureNumber
+          temperature={item.high}
+          temperatureStyle={[styles.text, styles.bold]}
+          roundShapeSize={'small'}/>
+        <TemperatureNumber
+          temperature={item.low}
+          temperatureStyle={styles.text}
+          roundShapeSize={'small'}/>
       </View>
 
     </View>
@@ -31,6 +38,9 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     alignItems: "center",
   },
+  dateContainer: {
+    flex: 1
+  },
   roundShape: {
     height: 10,
     width: 10,
@@ -39,9 +49,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  temperature: { fontSize: 56 },
-  cityText: { fontSize: 16, fontWeight: "bold" },
-  statusText: { fontSize: 16 },
   iconContainer: {
     height: 50,
     width: 50,
@@ -61,6 +68,11 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24
   },
+  highLowContainer: {
+    alignItems: 'flex-end'
+  },
+  text: { fontSize: 16 },
+  bold: {fontWeight: "bold" },
 });
 
 

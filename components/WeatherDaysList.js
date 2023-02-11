@@ -5,59 +5,23 @@
  * @format
  */
 
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import {
-  Alert, Dimensions, FlatList,
-  SafeAreaView,
+  Dimensions,
+  FlatList,
   StyleSheet,
   Text, View,
 } from "react-native";
-import Header from "../components/Header";
-import CustomImageButton from "../components/CustomImageButton";
-import CustomText from "../components/CustomTitle";
-import { FLASHWHITE } from "../util/colors";
 import { EMPTY_LIST_STATE } from "../util/strings";
-import WeatherMenuItem from "../components/WeatherMenuItem";
 import WeatherDaysItem from "./WeatherDaysItem";
 
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
-function WeatherDaysList(props) {
-
-  const data = [
-    {
-      temperature: "37",
-      status: "cloudy",
-      name: "Budapest",
-    },
-    {
-      temperature: "24",
-      status: "Partial cloudy",
-      name: "Malaysia",
-    },
-    {
-      temperature: "22",
-      status: "Fog",
-      name: "Tokyo",
-    },
-    {
-      temperature: "31",
-      status: "Snow",
-      name: "New York",
-    }
-  ]
-
-  const onPress = (item) => {
-    props.navigation.navigate("Home",{value: item});
-  };
-
-  const goBack = () => {
-    props.navigation.toggleDrawer();
-  }
+function WeatherDaysList({ data }) {
 
   const renderItem = ({ item, index }) => (
-    <WeatherDaysItem item={item} index={index} onPress={onPress}/>
+    <WeatherDaysItem item={item} index={index} />
   );
 
   function keyExtractor(item, index) {
@@ -93,10 +57,10 @@ const styles = StyleSheet.create({
   contentContainerStyle: {
     flex: 1,
   },
-  emptyContainer:{
+  emptyContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
 
 });

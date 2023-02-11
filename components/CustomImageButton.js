@@ -1,8 +1,5 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
-import SpaceFiller from "./SpaceFiller";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 const CustomImageButton = ({ image, onPress, isWhiteColor }) => {
   const tintColor = isWhiteColor ? 'white' : 'black';
   return (

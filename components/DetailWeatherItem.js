@@ -1,31 +1,17 @@
-import { Dimensions, Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
+import { Dimensions, Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useRef, useState } from "react";
 import SpaceFiller from "./SpaceFiller";
 import WeatherDaysList from "./WeatherDaysList";
 import SwipeIndicator from "./SwipeIndicator";
 import TodayWeather from "./TodayWeather";
-import BottomWeatherDetails from "./BottomWeatherDetails";
+import { useNavigation } from "@react-navigation/native";
 
 const { height, width } = Dimensions.get("window");
 const backgroundHeight = 250;
 const DetailWeatherItem = ({ item, onPress }) => {
+  const navigation = useNavigation();
   const scrollViewRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const bottomInformation = [
-    {
-      icon: require("../images/umbrella.png"),
-      value: "40%",
-    },
-    {
-      icon: require("../images/drop.png"),
-      value: "50%",
-    },
-    {
-      icon: require("../images/wind.png"),
-      value: "4 mph",
-    },
-  ];
 
   const onPressItem = () => {
     onPress(item);
@@ -34,12 +20,12 @@ const DetailWeatherItem = ({ item, onPress }) => {
   const CityTop = () => {
     return (
       <>
-        <View style={{ backgroundColor: "black", height: backgroundHeight, width: "100%" }} />
+        <Image key={item.name} style={styles.backgroundImage} source={{uri: item.background}} />
         <View style={styles.cityContainer}>
-          <View style={styles.roundImage} />
+          <Image style={styles.roundImage} source={{uri: item.flag}} />
         </View>
         <SpaceFiller height={backgroundHeight / 4} />
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <View style={styles.bottomBackgroundContainer}>
           <Text style={styles.cityText}>{item.name}</Text>
           <SpaceFiller height={16} />
           <SwipeIndicator totalItems={2} currentIndex={currentIndex} />
@@ -57,7 +43,7 @@ const DetailWeatherItem = ({ item, onPress }) => {
   return (
     <View style={styles.container} onPress={onPressItem}>
       <CityTop />
-      <View style={{ flex: 1 }}>
+      <View style={styles.weatherInformationContainer}>
         <ScrollView
           ref={scrollViewRef}
           horizontal
@@ -70,12 +56,11 @@ const DetailWeatherItem = ({ item, onPress }) => {
           snapToAlignment={"center"}
           decelerationRate={0}
         >
-          <TodayWeather />
-          <WeatherDaysList />
+          <TodayWeather data={item}/>
+          <WeatherDaysList data={item?.daily} navigation={navigation} />
         </ScrollView>
 
       </View>
-      <BottomWeatherDetails item={bottomInformation} />
 
     </View>
   );
@@ -132,6 +117,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  backgroundImage: {
+    backgroundColor: "black",
+    height: backgroundHeight,
+    width: "100%"
+  },
+  bottomBackgroundContainer:{
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  weatherInformationContainer: {
+    flex: 1
+  }
 });
 
 
