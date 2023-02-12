@@ -36,7 +36,7 @@ const DetailWeatherItem = ({ item, onPress }) => {
   };
 
   const handleOnScroll = (event) => {
-    const index = parseInt(event.nativeEvent.contentOffset.x / width);
+    const index = Math.round(event.nativeEvent.contentOffset.x / width);
     setCurrentIndex(index);
   };
 
