@@ -37,22 +37,19 @@ function WeatherDaysList({ data }) {
   };
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        contentContainerStyle={styles.contentContainerStyle}
-        ListEmptyComponent={<EmptyList />} />
-    </View>
+    <FlatList
+      style={styles.container}
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      contentContainerStyle={styles.contentContainerStyle}
+      ListEmptyComponent={<EmptyList />} />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     width: width,
-    justifyContent: "center",
-    flex: 1,
   },
   contentContainerStyle: {
     flex: 1,

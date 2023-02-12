@@ -14,13 +14,6 @@ const data = [
     ],
     daily: [
       {
-        status: "sun",
-        day: "WED",
-        date: "15 FEB",
-        high: 32,
-        low: 24
-      },
-      {
         status: "cloudy",
         day: "THUR",
         date: "16 FEB",
@@ -49,7 +42,7 @@ const data = [
         low: 24
       }
     ],
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Flag_of_Budapest_%282011-%29.svg/800px-Flag_of_Budapest_%282011-%29.svg.png",
+    flag: "https://www.countryaah.com/wp-content/uploads/2020/08/Flag-of-Hungary.jpg",
     background: "https://media.timeout.com/images/105879336/750/422/image.jpg",
   },
   {
@@ -65,13 +58,6 @@ const data = [
       { type: "warm", value: 10 },
     ],
     daily: [
-      {
-        status: "cloudy",
-        day: "WED",
-        date: "15 FEB",
-        high: 28,
-        low: 22
-      },
       {
         status: "partialCloudy",
         day: "THUR",
@@ -101,12 +87,12 @@ const data = [
         low: 24
       }
     ],
-    flag: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png",
-    background: "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
+    flag: "https://media.istockphoto.com/id/1150921192/vector/japan-national-flag-vector-illustration-tokyo.jpg?s=612x612&w=0&k=20&c=WPsHEI3Oi__hY6F2QDZvx_htM_941osBro2NPGGzyd4=",
+    background: "https://www.gotokyo.org/en/plan/tokyo-outline/images/main.jpg",
   },
   {
     id: 3,
-    name: "Malaysia",
+    name: "Kuala Lumpur",
     status: "Sun",
     temperature: 34,
     high: 37,
@@ -117,13 +103,6 @@ const data = [
       { type: "warm", value: 40 },
     ],
     daily: [
-      {
-        status: "rain",
-        day: "WED",
-        date: "15 FEB",
-        high: 32,
-        low: 24
-      },
       {
         status: "cloudy",
         day: "THUR",
@@ -153,8 +132,8 @@ const data = [
         low: 24
       }
     ],
-    flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Malaya.svg/1280px-Flag_of_Malaya.svg.png",
-    background: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg/640px-The_Twins_SE_Asia_2019_%2849171985716%29.jpg",
+    flag: "https://media.istockphoto.com/id/694743900/vector/malaysian-flag-flat-layout-vector-illustration.jpg?s=612x612&w=0&k=20&c=cAJOiibhRJmiWJY5VbY4vQx3X4UdiZ4BDo84teMkb74=",
+    background: "https://retailinasia.com/wp-content/uploads/2016/05/kuala-lumpur-mandarian-hotel.jpg",
   },
 ];
 
@@ -164,6 +143,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
+  res.setHeader("Accept", "application/json");
   res.end(JSON.stringify(data));
 });
 

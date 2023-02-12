@@ -4,11 +4,13 @@ import SpaceFiller from "./SpaceFiller";
 import TemperatureNumber from "./TemperatureNumber";
 import { getImageWeatherStatus } from "../util/utility";
 import BottomWeatherDetails from "./BottomWeatherDetails";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 const TodayWeather = ({ data }) => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {paddingBottom: insets.bottom}]}>
       <Image style={styles.image} source={getImageWeatherStatus(data.status)} />
       <SpaceFiller height={24} />
       <TemperatureNumber
@@ -42,8 +44,8 @@ const styles = StyleSheet.create({
     width: width,
   },
   image: {
-    width: 48,
-    height: 48,
+    width: height / 32,
+    height: height / 32,
   },
   highLowContainer: {
     flexDirection: "row",
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   temperaturePosition: {
+    fontSize: height / 12,
     top: -20,
   },
 });
