@@ -11,6 +11,7 @@ const TodayWeather = ({ data }) => {
   const insets = useSafeAreaInsets();
   return (
     <View style={[styles.container, {paddingBottom: insets.bottom}]}>
+      <SpaceFiller height={250 / 4} />
       <Image style={styles.image} source={getImageWeatherStatus(data.status)} />
       <SpaceFiller height={24} />
       <TemperatureNumber
@@ -39,7 +40,6 @@ const TodayWeather = ({ data }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     width: width,
   },

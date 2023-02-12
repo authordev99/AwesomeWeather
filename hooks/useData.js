@@ -14,8 +14,6 @@ const useData = () => {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
-          mode:"cors",
-          redirect: 'follow'
         });
       const json = await response.json();
       setData(json);
