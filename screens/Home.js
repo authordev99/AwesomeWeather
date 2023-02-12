@@ -19,10 +19,14 @@ const Home = ({ route, navigation }) => {
   const insets = useSafeAreaInsets();
   const flatListRef = useRef();
   const selectedIndex = route?.params?.index ?? 0;
-  const { data } = useData();
+  const { data, getData } = useData();
   const [currentIndex, setCurrentIndex] = useState(0);
   const backgroundImageList = data?.map(item => item.background );
   const flagImageList = data?.map(item => item.flag );
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     data && flatListRef.current.scrollToIndex({ index: selectedIndex, animated: true });

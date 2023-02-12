@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from "react";
+import React, { useContext } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -17,12 +17,12 @@ import CustomText from "../components/CustomTitle";
 import { FLASHWHITE } from "../util/colors";
 import { EMPTY_LIST_STATE } from "../util/strings";
 import WeatherMenuItem from "../components/WeatherMenuItem";
-import { data } from "../util/data";
-
+import { ContextState } from "../context";
+import FullScreenLoading from "../components/FullScreenLoading";
 
 
 function MenuDrawer(props) {
-
+  const state = useContext(ContextState);
   const onPress = (index) => {
     props.navigation.navigate("Home",{index: index});
   };
@@ -61,12 +61,18 @@ function MenuDrawer(props) {
             onPress={goBack} />
         }
       />
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        contentContainerStyle={styles.contentContainerStyle}
-        ListEmptyComponent={<EmptyList />} />
+      {state.data ? (
+        <FlatList
+          data={state.data}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          contentContainerStyle={styles.contentContainerStyle}
+          ListEmptyComponent={<EmptyList />}
+        />
+      ) : (
+        <FullScreenLoading />
+      )}
+
     </View>
   );
 }
