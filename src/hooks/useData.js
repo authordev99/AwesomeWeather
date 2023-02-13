@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Platform } from "react-native";
-import { ContextState } from "../context";
+import { ContextState } from "../../context";
 
 const useData = () => {
   const state = useContext(ContextState);

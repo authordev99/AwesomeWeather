@@ -17,7 +17,7 @@ import CustomText from "../components/CustomTitle";
 import { FLASHWHITE } from "../util/colors";
 import { EMPTY_LIST_STATE } from "../util/strings";
 import WeatherMenuItem from "../components/WeatherMenuItem";
-import { ContextState } from "../context";
+import { ContextState } from "../../context";
 import FullScreenLoading from "../components/FullScreenLoading";
 
 
